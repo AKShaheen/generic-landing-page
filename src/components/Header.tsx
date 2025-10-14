@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
-import { HiMenu, HiX, HiMoon, HiSun } from "react-icons/hi";
-import { useTheme } from "../contexts/ThemeContext";
+import { HiMenu, HiX } from "react-icons/hi";
 import { config } from "../config";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { mode, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,18 +64,6 @@ const Header = () => {
 
           {/* Mobile Menu Button & Theme Toggle */}
           <div className="md:hidden flex items-center space-x-3">
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800"
-              aria-label="Toggle theme"
-            >
-              {mode === "light" ? (
-                <HiMoon className="w-5 h-5 text-gray-700" />
-              ) : (
-                <HiSun className="w-5 h-5 text-gray-300" />
-              )}
-            </button>
-
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800"
